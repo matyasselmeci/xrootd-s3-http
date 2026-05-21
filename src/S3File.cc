@@ -551,7 +551,9 @@ void S3File::SendStatistics(XrdSysError &log) {
 				"Failed to generate g-stream statistics packet");
 		return;
 	}
+	/* TODO: Disabling this line because it always gets displayed regardless of the log level (#135)
 	log.Log(LogMask::Debug, "Statistics", buf);
+	*/
 	if (m_gstream && !m_gstream->Insert(buf, len + 1)) {
 		log.Log(LogMask::Error, "Statistics",
 				"Failed to send g-stream statistics packet");
